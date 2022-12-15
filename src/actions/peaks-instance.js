@@ -1,6 +1,6 @@
 import * as types from './types';
 import { isEmpty } from 'lodash';
-import APIUtils from '../api/Utils';
+import APIUtils from '../utils/APIUtils';
 import { buildSMUI, saveInitialStructure } from './sm-data';
 import {
   retrieveStructureSuccess,

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import List from '../components/List';
 import { Button, Col, Row } from 'react-bootstrap';
-import APIUtils from '../api/Utils';
+import APIUtils from '../utils/APIUtils';
 import { configureAlert } from '../services/alert-status';
 import { setAlert, updateStructureStatus } from '../actions/forms';
 import { isEqual } from 'lodash';

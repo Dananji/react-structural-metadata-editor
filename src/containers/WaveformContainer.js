@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import APIUtils from '../api/Utils';
+import APIUtils from '../utils/APIUtils';
 import { connect } from 'react-redux';
 import { initializeSMDataPeaks, peaksReady } from '../actions/peaks-instance';
 import { setAlert } from '../actions/forms';

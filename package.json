@@ -5,8 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "clean": "rimraf dist",
-    "start": "node src/server/index.js",
-    "dev": "webpack --mode development && node src/server/index.js",
+    "start": "node index.js",
+    "dev": "webpack --mode development && node index.js",
     "test": "jest --coverage --colors",
     "test:watch": "jest --watch",
     "transpile": "rimraf dist & babel src --out-dir dist --ignore src/**/*.spec.js,src/**/*.test.js --copy-files",
