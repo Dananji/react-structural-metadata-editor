@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "name": "structural-metadata-editor",
+  "name": "structural-metadata-editor-vercel-app",
   "builds": [
     { "src": "index.js", "use": "@vercel/node" }
   ],
