@@ -5,13 +5,13 @@
   "main": "dist/index.js",
   "scripts": {
     "clean": "rimraf dist",
-    "start": "node src/server/index.js",
-    "dev": "webpack --mode development && node src/server/index.js",
+    "start": "netlify-lambda serve src/server",
+    "dev": "webpack --mode development && node src/server/api.js",
     "test": "jest --coverage --colors",
     "test:watch": "jest --watch",
     "transpile": "rimraf dist & babel src --out-dir dist --ignore src/**/*.spec.js,src/**/*.test.js --copy-files",
     "prepublishOnly": "npm run transpile",
-    "build": "webpack --mode production"
+    "build": "netlify-lambda build src"
   },
   "contributors": [
     "Adam Arling <aarling@gmail.com>",
@@ -36,12 +36,14 @@
     "jest": "^28.1.1",
     "jest-dom": "^3.2.1",
     "jest-environment-jsdom": "^28.1.1",
+    "netlify-lambda": "^2.0.15",
     "react": "^16.8.6",
     "react-dnd-test-backend": "^7.4.4",
     "react-dnd-test-utils": "^7.4.4",
     "react-dom": "^16.8.6",
     "react-testing-library": "^7.0.0",
     "rimraf": "^2.6.3",
+    "serverless-http": "^3.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^5.74.0",
     "webpack-cli": "^3.3.1",
