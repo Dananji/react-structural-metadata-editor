@@ -12,7 +12,7 @@
     "transpile": "rimraf dist & babel src --out-dir dist --ignore src/**/*.spec.js,src/**/*.test.js --copy-files",
     "prepublishOnly": "npm run transpile",
     "build:lambda": "netlify-lambda build functions",
-    "build": "webpack mode --development"
+    "build": "webpack --mode production"
   },
   "contributors": [
     "Adam Arling <aarling@gmail.com>",
