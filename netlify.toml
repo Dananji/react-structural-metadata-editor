@@ -2,3 +2,5 @@
     functions = "built-lambda"
     publish = "demo/dist/"
     command = "npm run build"
+[functions]
+    directory = "functions"

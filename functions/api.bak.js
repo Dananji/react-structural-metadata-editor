@@ -8,15 +8,11 @@ const path = require('path');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const webpack = require('webpack');
-const serverless = require('serverless-http');
 const webpackConfig = require('../webpack.config');
 
 const PORT = process.env.PORT || 3001;
-// Set router base path for local dev
-const routerBasePath = process.env.NODE_ENV === 'dev' ? "/.netlify/functions/" : "";
-console.log(routerBasePath);
+
 const app = express();
-const router = express.Router();
 
 // Add hot reloading into the Node.js server
 const compiler = webpack(webpackConfig);
@@ -37,12 +33,11 @@ app.use(express.static(buildPath));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-router.get('/', (req, res) => {
-  console.log('serving ROOT')
+app.get('/', (req, res) => {
   res.sendFile(htmlFile);
 });
 
-router.get('/structure.json', (req, res) => {
+app.get('/structure.json', (req, res) => {
   res.header('Content-Type', 'application/json');
   let structure;
   try {
@@ -56,7 +51,7 @@ router.get('/structure.json', (req, res) => {
   res.send(structure);
 });
 
-router.get('/waveform.json', (req, res) => {
+app.get('/waveform.json', (req, res) => {
   res.header('Content-Type', 'application/json');
   let waveform;
   try {
@@ -70,12 +65,12 @@ router.get('/waveform.json', (req, res) => {
   res.send(waveform);
 });
 
-router.get('/media.mp4', (req, res) => {
+app.get('/media.mp4', (req, res) => {
   res.header('Content-Type', 'video/mp4');
   res.sendFile(path.join(__dirname, 'assets', 'media.mp4'));
 });
 
-router.post('/structure.json', (req, res) => {
+app.post('/structure.json', (req, res) => {
   const newStructure = req.body.json;
   const cleanedStruct = cleanStructure(newStructure);
   try {
@@ -112,8 +107,3 @@ const cleanStructure = (struct) => {
   formatItems([struct]);
   return struct;
 };
-
-app.use(routerBasePath, router);
-
-module.exports = app;
-module.exports.handler = serverless(app);

@@ -5,6 +5,7 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
   template: path.join(__dirname, 'demo/src/index.html'),
   filename: './index.html',
 });
+console.log(process.env)
 module.exports = {
   entry: [
     'webpack-hot-middleware/client?reload=true',
@@ -46,6 +47,9 @@ module.exports = {
   devServer: {
     // contentBase: path.join(__dirname, 'public'),
     port: 3001,
+    // proxy: {
+    //   "./netlify/functions/": "/",
+    // }
   },
   devtool: 'source-map',
 };
