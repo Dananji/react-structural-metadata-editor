@@ -4,4 +4,5 @@
     command = "npm run build"
 [functions]
     directory = "functions"
-    node_bundler = "esbuild"
+    external_node_modules = ["pnapi", "uglify-js", "@swc/core"]
+    included_files = ["functions/assets/**"]

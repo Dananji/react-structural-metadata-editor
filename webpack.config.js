@@ -6,7 +6,7 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
   filename: './index.html',
 });
 const LAUNCH_CMD = process.env.npm_lifecycle_event;
-const isDev = LAUNCH_CMD.includes('dev') ? true : false;
+const isDev = LAUNCH_CMD == 'dev' ? true : false;
 
 module.exports = {
   entry: [
@@ -45,11 +45,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   devServer: {
-    // contentBase: path.join(__dirname, 'public'),
     port: 3001,
-    // proxy: {
-    //   "./netlify/functions/": "/",
-    // }
   },
   devtool: 'source-map',
 };
