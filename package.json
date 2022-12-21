@@ -6,13 +6,13 @@
   "scripts": {
     "clean": "rimraf dist",
     "start:lambda": "netlify-lambda serve functions",
-    "dev": "webpack --mode development && node functions/api.js",
+    "dev": "webpack --mode=development && node functions/api.js",
     "test": "jest --coverage --colors",
     "test:watch": "jest --watch",
     "transpile": "rimraf dist & babel src --out-dir dist --ignore src/**/*.spec.js,src/**/*.test.js --copy-files",
     "prepublishOnly": "npm run transpile",
     "build:lambda": "netlify-lambda build functions",
-    "build": "webpack --mode production"
+    "build": "webpack --mode=production"
   },
   "contributors": [
     "Adam Arling <aarling@gmail.com>",
@@ -59,6 +59,7 @@
     "@material-ui/icons": "4.2.1",
     "axios": "^0.21.2",
     "base-64": "^0.1.0",
+    "esbuild": "0.16.10",
     "hls.js": "^1.1.2",
     "lodash": "4.17.21",
     "netlify-lambda": "^2.0.15",

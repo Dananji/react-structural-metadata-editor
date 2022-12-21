@@ -5,19 +5,19 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
   template: path.join(__dirname, 'demo/src/index.html'),
   filename: './index.html',
 });
-console.log(process.env)
+const LAUNCH_CMD = process.env.npm_lifecycle_event;
+const isDev = LAUNCH_CMD.includes('dev') ? true : false;
+
 module.exports = {
   entry: [
     'webpack-hot-middleware/client?reload=true',
     path.join(__dirname, 'demo/src/index.js'),
   ],
-  mode: 'development',
-  output: {
+  mode: isDev ? 'development' : 'production',
+  output: isDev ? {
     path: path.join(__dirname, 'demo/dist'),
     filename: 'bundle.js',
-  },
-  mode: 'production',
-  output: {
+  } : {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
   },
