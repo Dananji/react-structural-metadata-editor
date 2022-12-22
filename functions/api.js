@@ -14,7 +14,7 @@ const webpackConfig = require('../webpack.config');
 const PORT = process.env.PORT || 3001;
 // Set router base path for local dev
 console.log(webpackConfig.mode);
-const routerBasePath = webpackConfig.mode === 'development' ? "" : "/.netlify/functions/api";
+const routerBasePath = webpackConfig.mode === "development" ? "" : "/.netlify/functions/api";
 
 const app = express();
 const router = express.Router();
