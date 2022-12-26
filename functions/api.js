@@ -20,12 +20,15 @@ const router = express.Router();
 
 // Add hot reloading into the Node.js server
 const compiler = webpack(webpackConfig);
-app.use(
-  require('webpack-dev-middleware')(compiler, {
-    publicPath: webpackConfig.output.publicPath,
-  })
-);
-app.use(require('webpack-hot-middleware')(compiler));
+console.log(webpackConfig.mode);
+if(webpackConfig.mode === 'development') {
+  app.use(
+    require('webpack-dev-middleware')(compiler, {
+      publicPath: webpackConfig.output.publicPath,
+    })
+  );
+  app.use(require('webpack-hot-middleware')(compiler));
+}
 
 // When you navigate to the root page, use the built React components
 const buildPath = path.join(__dirname, '../demo/dist');

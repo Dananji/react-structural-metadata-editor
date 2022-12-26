@@ -9,10 +9,10 @@ const LAUNCH_CMD = process.env.npm_lifecycle_event;
 const isDev = LAUNCH_CMD == 'dev' ? true : false;
 
 module.exports = {
-  entry: [
+  entry: isDev ? [
     'webpack-hot-middleware/client?reload=true',
     path.join(__dirname, 'demo/src/index.js'),
-  ],
+  ] : path.join(__dirname, 'demo/src/index.js'),
   mode: isDev ? 'development' : 'production',
   output: isDev ? {
     path: path.join(__dirname, 'demo/dist'),
