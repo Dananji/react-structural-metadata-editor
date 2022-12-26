@@ -2,8 +2,8 @@ import React from 'react';
 import { render } from 'react-dom';
 import Root from '../../src';
 
-export const BASE_API_URL = process.env.NODE_ENV === 'development' ? '' : './netlify/functions/api';
-console.log(process.env.NODE_ENV);
+export const BASE_API_URL = '/.netlify/functions/api';
+
 const props = {
   initStructure: {
     label: 'Lunchroom manners',

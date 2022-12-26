@@ -1,10 +1,5 @@
 import axios from 'axios';
 
-// Config flag to change the source of data retrieval endpoint
-const useLocalData = false;
-
-const BASE_URL = 'http://localhost:3123/data/mock-response-';
-
 // Default headers for API calls
 const defaultHeaders = { 'Content-Type': 'application/json' };
 

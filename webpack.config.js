@@ -7,7 +7,6 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
 });
 const LAUNCH_CMD = process.env.npm_lifecycle_event;
 const isDev = LAUNCH_CMD == 'dev' ? true : false;
-process.env.NODE_ENV = isDev ? 'development' : 'production';
 
 module.exports = {
   entry: [

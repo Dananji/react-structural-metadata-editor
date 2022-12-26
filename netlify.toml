@@ -2,8 +2,6 @@
     functions = "built-lambda"
     publish = "demo/dist/"
     command = "npm run build"
-[build.environment]
-    NODE_ENV = "production"
 [functions]
     directory = "functions"
     external_node_modules = ["pnapi", "uglify-js", "@swc/core"]
