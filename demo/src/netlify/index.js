@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import Root from '../../src';
 
-export const BASE_API_URL = '';
+export const BASE_API_URL = '/.netlify/functions/api';
 
 const props = {
   initStructure: {
@@ -10,9 +10,9 @@ const props = {
     type: 'div',
     items: [],
   },
-  structureURL: `${BASE_API_URL}/structure.json`,
+  structureURL: `${BASE_API_URL}/structure-background.json`,
   waveformURL: `${BASE_API_URL}/waveform.json`,
-  audioURL: `${BASE_API_URL}/media.mp4`,
+  audioURL: `${BASE_API_URL}/media-background.mp4`,
   streamDuration: 572000,
   structureIsSaved: (val) => {},
 };

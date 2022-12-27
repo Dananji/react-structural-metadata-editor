@@ -5,13 +5,13 @@
   "main": "dist/index.js",
   "scripts": {
     "clean": "rimraf dist",
-    "start:lambda": "netlify-lambda serve functions",
-    "dev": "webpack --mode=development && node functions/api.js",
+    "start:lambda": "netlify-lambda serve functions/netlify",
+    "dev": "webpack --mode=development && node functions/index.js",
     "test": "jest --coverage --colors",
     "test:watch": "jest --watch",
     "transpile": "rimraf dist & babel src --out-dir dist --ignore src/**/*.spec.js,src/**/*.test.js --copy-files",
     "prepublishOnly": "npm run transpile",
-    "build:lambda": "netlify-lambda build functions",
+    "build:lambda": "netlify-lambda build functions/netlify",
     "build": "webpack --mode=production"
   },
   "contributors": [

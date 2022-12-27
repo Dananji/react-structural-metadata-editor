@@ -12,7 +12,7 @@ module.exports = {
   entry: isDev ? [
     'webpack-hot-middleware/client?reload=true',
     path.join(__dirname, 'demo/src/index.js'),
-  ] : path.join(__dirname, 'demo/src/index.js'),
+  ] : path.join(__dirname, 'demo/src/netlify/index.js'),
   mode: isDev ? 'development' : 'production',
   output: isDev ? {
     path: path.join(__dirname, 'demo/dist'),

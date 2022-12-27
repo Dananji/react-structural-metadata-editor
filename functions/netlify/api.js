@@ -9,7 +9,7 @@ const fs = require('fs');
 const bodyParser = require('body-parser');
 const webpack = require('webpack');
 const serverless = require('serverless-http');
-const webpackConfig = require('../webpack.config');
+const webpackConfig = require('../../webpack.config');
 
 const PORT = process.env.PORT || 3001;
 // Set router base path for local dev
@@ -17,18 +17,6 @@ const routerBasePath = "/.netlify/functions/api";
 
 const app = express();
 const router = express.Router();
-
-// Add hot reloading into the Node.js server
-const compiler = webpack(webpackConfig);
-console.log(webpackConfig.mode);
-if(webpackConfig.mode === 'development') {
-  app.use(
-    require('webpack-dev-middleware')(compiler, {
-      publicPath: webpackConfig.output.publicPath,
-    })
-  );
-  app.use(require('webpack-hot-middleware')(compiler));
-}
 
 // When you navigate to the root page, use the built React components
 const buildPath = path.join(__dirname, '../demo/dist');
@@ -45,7 +33,7 @@ router.get('/', (req, res) => {
   res.sendFile(htmlFile);
 });
 
-router.get('/structure.json', (req, res) => {
+router.get('/structure-background.json', (req, res) => {
   res.header('Content-Type', 'application/json');
   let structure;
   try {
@@ -73,12 +61,12 @@ router.get('/waveform.json', (req, res) => {
   res.send(waveform);
 });
 
-router.get('/media.mp4', (req, res) => {
+router.get('/media-background.mp4', (req, res) => {
   res.header('Content-Type', 'video/mp4');
   res.sendFile(path.join(__dirname, 'assets', 'media.mp4'));
 });
 
-router.post('/structure.json', (req, res) => {
+router.post('/structure-background.json', (req, res) => {
   const newStructure = req.body.json;
   const cleanedStruct = cleanStructure(newStructure);
   try {
