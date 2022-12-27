@@ -38,7 +38,7 @@ router.get('/structure-background.json', (req, res) => {
   let structure;
   try {
     structure = fs.readFileSync(
-      path.join(__dirname, 'assets', 'structure.json'),
+      path.join(__dirname, '../assets', 'structure.json'),
       'utf-8'
     );
   } catch (err) {
@@ -52,7 +52,7 @@ router.get('/waveform.json', (req, res) => {
   let waveform;
   try {
     waveform = fs.readFileSync(
-      path.join(__dirname, 'assets', 'waveform.json'),
+      path.join(__dirname, '../assets', 'waveform.json'),
       'utf-8'
     );
   } catch (err) {
@@ -63,7 +63,7 @@ router.get('/waveform.json', (req, res) => {
 
 router.get('/media-background.mp4', (req, res) => {
   res.header('Content-Type', 'video/mp4');
-  res.sendFile(path.join(__dirname, 'assets', 'media.mp4'));
+  res.sendFile(path.join(__dirname, '../assets', 'media.mp4'));
 });
 
 router.post('/structure-background.json', (req, res) => {
@@ -71,7 +71,7 @@ router.post('/structure-background.json', (req, res) => {
   const cleanedStruct = cleanStructure(newStructure);
   try {
     fs.writeFileSync(
-      path.join(__dirname, 'assets', 'structure.json'),
+      path.join(__dirname, '../assets', 'structure.json'),
       JSON.stringify(cleanedStruct)
     );
     res.writeHead(200, { 'Content-Type': 'text/html' });
