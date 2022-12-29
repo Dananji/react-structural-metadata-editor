@@ -18,7 +18,7 @@ module.exports = {
     path: path.join(__dirname, 'demo/dist'),
     filename: 'bundle.js',
   } : {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'demo/netlify/dist'),
     filename: 'bundle.js',
   },
   module: {

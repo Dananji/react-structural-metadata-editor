@@ -10,9 +10,9 @@ const props = {
     type: 'div',
     items: [],
   },
-  structureURL: `${BASE_API_URL}/structure-background.json`,
+  structureURL: `${BASE_API_URL}/structure.json`,
   waveformURL: `${BASE_API_URL}/waveform.json`,
-  audioURL: `${BASE_API_URL}/media-background.mp4`,
+  audioURL: `${BASE_API_URL}/media.mp4`,
   streamDuration: 572000,
   structureIsSaved: (val) => {},
 };
